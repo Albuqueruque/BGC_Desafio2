@@ -1,0 +1,10 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "desafio"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-vfjnyf6hjhoo"
+s3_prefix = "desafio"
+region = "us-east-1"
+capabilities = "CAPABILITY_IAM"
+parameter_overrides = "DynamoDBTableStreamARN=\"arn:aws:dynamodb:us-east-1:901775600839:table/formtable-dev/stream/2021-02-09T15:41:13.607\" FromMailIdentityName=\"matheusgmcm+from@gmail.com\" ToMailIdentityName=\"matheusgmcm+to@gmail.com\""

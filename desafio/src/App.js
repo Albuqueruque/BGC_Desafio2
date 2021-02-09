@@ -9,6 +9,7 @@ import awsExports from "./aws-exports";
 Amplify.configure(awsExports);
 
 async function addContact() {
+  console.log('É ELE');
   const data = {
     body: {
       name: formState.name,
@@ -33,38 +34,38 @@ function updateFormState(key, value) {
 function App() {
   return (
     <Container>
-    <section class="page-section" id="contact">
-          <div class="container">
-              <div class="text-center">
-                  <h2 class="section-heading text-uppercase">Reverse seu minion</h2>
-                  <h3 class="section-subheading text-muted">Preencha o formulario a abaixo e nos informe qual minion você deseja</h3>
+    <section className="page-section" id="contact">
+          <div className="container">
+              <div className="text-center">
+                  <h2 className="section-heading text-uppercase">Reserve seu minion</h2>
+                  <h3 className="section-subheading text-muted">Preencha o formulario a abaixo e nos informe qual minion você deseja</h3>
               </div>
-              <form id="contactForm" name="sentMessage" novalidate="novalidate">
-                  <div class="row align-items-stretch mb-5">
-                      <div class="col-md-6">
-                          <div class="form-group">
-                              <input class="form-control" id="name" type="text" placeholder="Nome" required="required" data-validation-required-message="Nome"  onChange={e => updateFormState('name', e.target.value)} />
-                              <p class="help-block text-danger"></p>
+              <form id="contactForm" name="sentMessage" noValidate="noValidate">
+                  <div className="row align-items-stretch mb-5">
+                      <div className="col-md-6">
+                          <div className="form-group">
+                              <input className="form-control" id="name" type="text" placeholder="Nome" required="required" data-validation-required-message="Nome"  onChange={e => updateFormState('name', e.target.value)} />
+                              <p className="help-block text-danger"></p>
                           </div>
-                          <div class="form-group">
-                              <input class="form-control" id="email" type="email" placeholder="Email" required="required" data-validation-required-message="Email"  onChange={e => updateFormState('email', e.target.value)} />
-                              <p class="help-block text-danger"></p>
+                          <div className="form-group">
+                              <input className="form-control" id="email" type="email" placeholder="Email" required="required" data-validation-required-message="Email"  onChange={e => updateFormState('email', e.target.value)} />
+                              <p className="help-block text-danger"></p>
                           </div>
-                          <div class="form-group mb-md-0">
-                              <input class="form-control" id="phone" type="tel" placeholder="Numero de telefone" required="required" data-validation-required-message="Numero de telefone" onChange={e => updateFormState('phone', e.target.value)} />
-                              <p class="help-block text-danger"></p>
+                          <div className="form-group mb-md-0">
+                              <input className="form-control" id="phone" type="tel" placeholder="Numero de telefone" required="required" data-validation-required-message="Numero de telefone" onChange={e => updateFormState('phone', e.target.value)} />
+                              <p className="help-block text-danger"></p>
                           </div>
                       </div>
-                      <div class="col-md-6">
-                          <div class="form-group form-group-textarea mb-md-0">
-                              <textarea class="form-control" id="message" placeholder="Por favor insira seu pedido " required="required" data-validation-required-message="Por favor insira seu pedido"  onChange={e => updateFormState('message', e.target.value)}></textarea>
-                              <p class="help-block text-danger"></p>
+                      <div className="col-md-6">
+                          <div className="form-group form-group-textarea mb-md-0">
+                              <textarea className="form-control" id="message" placeholder="Por favor insira seu pedido " required="required" data-validation-required-message="Por favor insira seu pedido"  onChange={e => updateFormState('message', e.target.value)}></textarea>
+                              <p className="help-block text-danger"></p>
                           </div>
                       </div>
                   </div>
-                  <div class="text-center">
+                  <div className="text-center">
                       <div id="success"></div>
-                      <button class="btn btn-primary btn-xl text-uppercase" type="submit" onClick={addContact}>Fazer o pedido</button>
+                      <button className="btn btn-primary btn-xl text-uppercase" type="submit" onClick={addContact}>Fazer o pedido</button>
                   </div>
               </form>
           </div>
