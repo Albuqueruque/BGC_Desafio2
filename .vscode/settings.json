@@ -2,7 +2,7 @@
     "serverlessConsole.services": [
         {
             "type": "cloudformation",
-            "title": "contact-form-app",
+            "title": "desafio",
             "timeOffsetInMs": 0,
             "awsProfile": "default",
             "stacks": [
