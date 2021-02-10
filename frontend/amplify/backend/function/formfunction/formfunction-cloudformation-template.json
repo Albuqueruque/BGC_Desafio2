@@ -7,7 +7,13 @@
       "Default": "NONE",
       "Description": " Schedule Expression"
     },
+    "deploymentBucketName": {
+      "Type": "String"
+    },
     "env": {
+      "Type": "String"
+    },
+    "s3Key": {
       "Type": "String"
     },
     "storageformtableName": {
@@ -37,6 +43,14 @@
         "aws:asset:property": "Code"
       },
       "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "deploymentBucketName"
+          },
+          "S3Key": {
+            "Ref": "s3Key"
+          }
+        },
         "Handler": "index.handler",
         "FunctionName": {
           "Fn::If": [
@@ -80,11 +94,7 @@
         },
         "Runtime": "nodejs12.x",
         "Layers": [],
-        "Timeout": "25",
-        "Code": {
-          "S3Bucket": "amplify-desafio-dev-123059-deployment",
-          "S3Key": "amplify-builds/formfunction-3669396d71423671592f-build.zip"
-        }
+        "Timeout": "25"
       }
     },
     "LambdaExecutionRole": {
@@ -93,12 +103,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "desafioLambdaRole5b08fe74",
+            "contactformLambdaRole18ef8f30",
             {
               "Fn::Join": [
                 "",
                 [
-                  "desafioLambdaRole5b08fe74",
+                  "contactformLambdaRole18ef8f30",
                   "-",
                   {
                     "Ref": "env"

@@ -19,8 +19,8 @@
     "privacy": {
         "auth": 0,
         "unauth": 0,
-        "authRoleName": "amplify-desafio-dev-123059-authRole",
-        "unAuthRoleName": "amplify-desafio-dev-123059-unauthRole"
+        "authRoleName": "amplify-contactform-dev-10832-authRole",
+        "unAuthRoleName": "amplify-contactform-dev-10832-unauthRole"
     },
     "dependsOn": [
         {

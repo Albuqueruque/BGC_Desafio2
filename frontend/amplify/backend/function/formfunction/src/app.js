@@ -14,18 +14,14 @@ See the License for the specific language governing permissions and limitations 
 	STORAGE_FORMTABLE_NAME
 Amplify Params - DO NOT EDIT */
 
-const app = express();
-const bodyParser = require("body-parser");
-var express = require('express');
-var app = express();
-var bodyParser = require('body-parser');
-var awsServerlessExpressMiddleware = require('aws-serverless-express/middleware');
-
+var express = require('express')
+var bodyParser = require('body-parser')
+var awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
 
 // declare a new express app
-
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json());
+var app = express()
+app.use(bodyParser.json())
+app.use(awsServerlessExpressMiddleware.eventContext())
 
 // Enable CORS for all methods
 app.use(function(req, res, next) {
@@ -34,12 +30,14 @@ app.use(function(req, res, next) {
   next()
 });
 
+
 const AWS = require ('aws-sdk')
 const docClient = new AWS.DynamoDB.DocumentClient();
 
 function id(){
   return Math.random().toString(36).substring(2) + Date.now().toString(36);
 }
+
 
 app.post('/contact',function(req,res){
   console.log(req);
@@ -51,8 +49,7 @@ app.post('/contact',function(req,res){
       id: id(),
       name: req.body.name,
       email: req.body.email,
-      message: req.body.message,
-      phone: req.body.phone
+      message: req.body.message
     }
   }
   docClient.put(params, function(err, data){
@@ -61,9 +58,8 @@ app.post('/contact',function(req,res){
   })
 });
 
-
 app.listen(3000, function() {
-    console.log("App rodando!")
+    console.log("App started")
 });
 
 // Export the app object. When executing the application local this does nothing. However,
